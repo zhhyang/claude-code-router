@@ -17,7 +17,7 @@ import { StreamOptionsTransformer } from "./streamoptions.transformer";
 import { OpenAITransformer } from "./openai.transformer";
 import { CustomParamsTransformer } from "./customparams.transformer";
 import { VercelTransformer } from "./vercel.transformer";
-import { OpenAIResponsesTransformer } from "./openai.responses.transformer";
+// import { OpenAIResponsesTransformer } from "./openai.responses.transformer";
 import { ForceReasoningTransformer } from "./forcereasoning.transformer"
 
 export default {
@@ -40,6 +40,6 @@ export default {
   StreamOptionsTransformer,
   CustomParamsTransformer,
   VercelTransformer,
-  OpenAIResponsesTransformer,
+  // OpenAIResponsesTransformer,
   ForceReasoningTransformer
 };

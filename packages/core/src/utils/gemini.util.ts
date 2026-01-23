@@ -249,7 +249,7 @@ export function buildRequestBody(
       return {
         name: tool.function.name,
         description: tool.function.description,
-        parametersJsonSchema: tool.function.parameters,
+        parameters: tool.function.parameters,
       };
     });
   if (functionDeclarations?.length) {
@@ -333,9 +333,6 @@ export function buildRequestBody(
           ...message.tool_calls.map((toolCall, index) => {
             return {
               functionCall: {
-                id:
-                  toolCall.id ||
-                  `tool_${Math.random().toString(36).substring(2, 15)}`,
                 name: toolCall.function.name,
                 args: JSON.parse(toolCall.function.arguments || "{}"),
               },

@@ -127,6 +127,21 @@ async function build() {
       esmCtx.dispose(),
     ]);
 
+    // Copy type declaration files to expected locations
+    const distDir = path.join(baseUrl, "dist");
+    const srcServerDts = path.join(distDir, "src", "server.d.ts");
+    const distServerDts = path.join(distDir, "server.d.ts");
+    const distIndexDts = path.join(distDir, "index.d.ts");
+    
+    if (fs.existsSync(srcServerDts)) {
+      if (!fs.existsSync(distServerDts)) {
+        fs.copyFileSync(srcServerDts, distServerDts);
+      }
+      if (!fs.existsSync(distIndexDts)) {
+        fs.copyFileSync(srcServerDts, distIndexDts);
+      }
+    }
+
     console.log("✅ Build completed successfully!");
     console.log("  - CJS: dist/cjs/server.cjs");
     console.log("  - ESM: dist/esm/server.mjs");
