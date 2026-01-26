@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "claude-code-router-server",
+      "script": "/export/server/jdos_kj_code-agent-router/index.js",
+      "cwd": "/export/server/jdos_kj_code-agent-router",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "1G",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "error_file": "/export/log/jdos_kj_code-agent-router/error.log",
+      "out_file": "/export/log/jdos_kj_code-agent-router/out.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": true,
+      "time": true
+    }
+  ]
+}
