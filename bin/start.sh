@@ -15,7 +15,7 @@ echo "获取nodejs版本"
 node -v
 
 echo "启动 PM2 服务..."
-sudo pm2 start pm2.json
+pm2 start pm2.json
 
 echo "=== 服务启动完成 ==="
 echo "查看服务状态:"
