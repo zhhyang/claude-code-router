@@ -14,10 +14,6 @@ mkdir -p logs
 echo "获取nodejs版本"
 node -v
 
-echo "npm install 开始..."
-npm install --registry=http://registry.m.jd.com/
-echo "npm install 完成"
-
 echo "启动 PM2 服务..."
 sudo pm2 start pm2.json
 
