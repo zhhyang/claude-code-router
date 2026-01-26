@@ -19,7 +19,7 @@ npm install --registry=http://registry.m.jd.com/
 echo "npm install 完成"
 
 echo "启动 PM2 服务..."
-pm2 start pm2.json
+sudo pm2 start pm2.json
 
 echo "=== 服务启动完成 ==="
 echo "查看服务状态:"
