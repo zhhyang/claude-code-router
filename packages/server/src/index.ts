@@ -102,7 +102,7 @@ async function getServer(options: RunOptions = {}) {
   if (hasProviders) {
     HOST = config.HOST;
     if (!config.APIKEY) {
-      HOST = "127.0.0.1";
+      HOST = "0.0.0.0";
     }
   } else {
     // When no providers are configured, listen on 0.0.0.0 without authentication
