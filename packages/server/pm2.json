@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "claude-code-router-server",
-      "script": "/export/server/jdos_kj_code-agent-router/index.js",
+      "script": "/export/server/jdos_kj_code-agent-router/dist/index.js",
       "cwd": "/export/server/jdos_kj_code-agent-router",
       "instances": 1,
       "autorestart": true,
