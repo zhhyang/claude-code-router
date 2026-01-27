@@ -15,6 +15,12 @@ try {
     fs.mkdirSync(distDir, { recursive: true });
   }
 
+  const staticDir = path.join(distDir, 'dist');
+
+  if (!fs.existsSync(staticDir)) {
+    fs.mkdirSync(staticDir, { recursive: true });
+  }
+
   // Generate type declaration files
   console.log('Generating type declaration files...');
   execSync('tsc --emitDeclarationOnly', {
