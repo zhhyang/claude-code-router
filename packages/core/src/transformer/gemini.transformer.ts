@@ -18,6 +18,7 @@ export class GeminiTransformer implements Transformer {
         return {
             body: {
                 model: request.model,
+                stream:request.stream,
                 ...buildRequestBody(request)
             },
             config: {
