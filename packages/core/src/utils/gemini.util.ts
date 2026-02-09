@@ -383,7 +383,7 @@ export function buildRequestBody(
     generationConfig.thinkingConfig = {
       includeThoughts: true,
     };
-    if (request.model.includes("gemini-3")) {
+    if (request.model.includes("Gemini 3")) {
       generationConfig.thinkingConfig.thinkingLevel = request.reasoning.effort;
     } else {
       const thinkingBudgets = request.model.includes("pro")
@@ -410,7 +410,7 @@ export function buildRequestBody(
   const body = {
     contents,
     tools: tools.length ? tools : undefined,
-    generationConfig,
+    generation_config:generationConfig,
   };
 
   if (request.tool_choice) {
@@ -624,8 +624,7 @@ export async function transformResponseOut(
           line: string,
           controller: ReadableStreamDefaultController
         ) => {
-          if (line.startsWith("data: ")) {
-            const chunkStr = line.slice(6).trim();
+            const chunkStr = line.trim();
             if (chunkStr) {
               logger?.debug({ chunkStr }, `${providerName} chunk:`);
               try {
@@ -1000,7 +999,6 @@ export async function transformResponseOut(
                 );
               }
             }
-          }
         };
 
         const reader = response.body!.getReader();
