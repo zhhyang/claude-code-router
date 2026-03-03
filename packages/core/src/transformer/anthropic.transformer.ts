@@ -89,28 +89,31 @@ export class AnthropicTransformer implements Transformer {
             );
             if (toolParts.length) {
               toolParts.forEach((tool: any) => {
-                tool.content.forEach((toolContent: any) => {
-                  if (toolContent.type === "image") {
-                    messages.push({
-                      role: "user",
-                      content: [
-                        {
-                          type: "image_url",
-                          image_url: {
-                            url:
-                              toolContent.source?.type === "base64"
-                                ? formatBase64(
-                                    toolContent.source.data,
-                                    toolContent.source.media_type,
-                                  )
-                                : toolContent.source.url,
+                if (Array.isArray(tool.content)){
+                  tool.content.forEach((toolContent: any) => {
+                    if (toolContent.type === "image") {
+                      messages.push({
+                        role: "user",
+                        content: [
+                          {
+                            type: "image_url",
+                            image_url: {
+                              url:
+                                  toolContent.source?.type === "base64"
+                                      ? formatBase64(
+                                          toolContent.source.data,
+                                          toolContent.source.media_type,
+                                      )
+                                      : toolContent.source.url,
+                            },
+                            media_type: toolContent.source.media_type,
                           },
-                          media_type: toolContent.source.media_type,
-                        },
-                      ],
-                    });
-                  }
-                });
+                        ],
+                      });
+                    }
+                  });
+                }
+
 
                 const toolMessage: UnifiedMessage = {
                   role: "tool",
